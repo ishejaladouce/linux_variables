@@ -12,14 +12,23 @@ read op
 
 # perfom calculation based on operation
 
-if ["$op" == "+"]; then
+if [ "$op" == "+" ]; then
 	result=$((num1+num2))
-elif ["$op" == "-"]; then
+elif [ "$op" == "-" ]; then
 	result=$((num1-num2))
-elif ["$op" == "*"]; then
-        result=$((num1*num2))
-elif ["$op" == "/"]; then
-        result=$((num1/num2))
+elif [ "$op" == "*" ]; then
+        result=$((num1 * num2))
+elif [ "$op" == "/" ]; then
+        if [ "$num2" -eq 0 ]; then
+		echo "❌ Error: cannot devide by zero."
+		exit 1
+	fi
+	result =$((num1 / num2))
+else
+	echo "❌ Invalid operation. please choose from +, -, *, /."
+	exit 1
+fi 
 
 echo "🎊 The result of $num1 $op $num2 is: $result "
+
 
