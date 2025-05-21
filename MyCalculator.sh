@@ -23,7 +23,7 @@ elif [ "$op" == "/" ]; then
 		echo "❌ Error: cannot devide by zero."
 		exit 1
 	fi
-	result =$((num1 / num2))
+	result=$((num1 / num2))
 else
 	echo "❌ Invalid operation. please choose from +, -, *, /."
 	exit 1
